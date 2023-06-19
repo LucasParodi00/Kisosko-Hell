@@ -511,11 +511,56 @@ AS
 	END
 GO
 
+/* REPORTES  */
 
+CREATE PROCEDURE SP_ReporteCompra (
+@FechaInicio VARCHAR (10),
+@FechaFin VARCHAR (10),
+@IdProveedor INT 
+)
+AS
+	BEGIN 
+		SET DATEFORMAT dmy
 
+		SELECT 
+			CONVERT(char(10), compra.FechaRegistro, 103)[FechaRegistro], compra.TipoDocumento, compra.NumeroDocumento, compra.MontoTotal,
+			usuario.NombreCompleto[UsuarioRegistro],
+			proveedor.Documento[DocumentoProveedor], proveedor.RazonSocial,
+			producto.Codigo[CodigoProducto], producto.Nombre[NombreProducto],
+			categoria.Descripcion[Categoria], detalle_compra.PrecioCompra, detalle_compra.PrecioVenta, detalle_compra.Cantidad, detalle_compra.MontoTotal[SubTotal]
 
+		FROM compra 
+			JOIN usuario ON usuario.IdUsuario = compra.IdUsuario
+			JOIN proveedor ON proveedor.IdProveedor = compra.IdProveedor
+			JOIN detalle_compra ON detalle_compra.IdCompra = compra.IdCompra
+			JOIN producto ON producto.IdProducto = detalle_compra.IdProducto
+			JOIN categoria ON categoria.IdCategoria = producto.IdCategoria
+		WHERE CONVERT(DATE, compra.FechaRegistro) BETWEEN @FechaInicio AND @FechaFin 
+			  AND proveedor.IdProveedor = IIF (@IdProveedor = 0, proveedor.IdProveedor, @IdProveedor)
+	END
+GO
 
-
+CREATE PROCEDURE SP_ReporteVentas (
+@FechaInicio VARCHAR (10),
+@FechaFin VARCHAR (10)
+)
+AS 
+	BEGIN 
+		SET DATEFORMAT dmy
+		
+		SELECT CONVERT(CHAR(10), venta.FechaRegistro, 103)[FechaRegistro], venta.TipoDocumento, venta.NumeroDocumento, venta.MontoTotal, venta.DocumentoCliente, venta.NombreCliente,
+		usuario.NombreCompleto[UsuarioRegistro], 
+		producto.Codigo[CodigoProducto], producto.Nombre[NombreProducto],
+		categoria.Descripcion[Categoria], detalle_venta.PrecioVenta, detalle_venta.Cantidad, detalle_venta.SubTotal
+		
+		FROM venta
+		JOIN usuario ON usuario.IdUsuario = venta.IdUsuario
+		JOIN detalle_venta ON detalle_venta.IdVenta = venta.IdVenta
+		JOIN producto ON producto.IdProducto = detalle_venta.IdVenta
+		JOIN categoria ON categoria.IdCategoria = producto.IdCategoria
+		WHERE CONVERT(DATE, venta.FechaRegistro) BETWEEN @FechaInicio AND @FechaFin
+	END
+GO
 
 
 

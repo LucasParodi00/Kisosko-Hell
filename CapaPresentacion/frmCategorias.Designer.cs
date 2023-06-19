@@ -254,7 +254,7 @@ namespace CapaPresentacion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1090, 636);
+            ClientSize = new Size(1484, 636);
             Controls.Add(txtIndice);
             Controls.Add(txttId);
             Controls.Add(label10);

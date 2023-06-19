@@ -54,3 +54,24 @@ WHERE detalle_compra.IdCompra = 4
 GO
 
 UPDATE producto SET Stock = Stock - @Cantidad WHERE @IdProducto = IdProducto
+
+
+SELECT * FROM compra
+
+SELECT 
+CONVERT(char(10), compra.FechaRegistro, 103)[FechaRegistro], compra.TipoDocumento, compra.NumeroDocumento, compra.MontoTotal,
+usuario.NombreCompleto[UsuarioRegistro],
+proveedor.Documento[DocumentoProveedor], proveedor.RazonSocial,
+producto.Codigo[CodigoProducto], producto.Nombre[NombreProducto],
+categoria.Descripcion[Categoria], detalle_compra.PrecioCompra, detalle_compra.PrecioVenta, detalle_compra.Cantidad, detalle_compra.MontoTotal[SubTotal]
+
+FROM compra 
+JOIN usuario ON usuario.IdUsuario = compra.IdUsuario
+JOIN proveedor ON proveedor.IdProveedor = compra.IdProveedor
+JOIN detalle_compra ON detalle_compra.IdCompra = compra.IdCompra
+JOIN producto ON producto.IdProducto = detalle_compra.IdProducto
+JOIN categoria ON categoria.IdCategoria = producto.IdCategoria
+WHERE CONVERT(DATE, compra.FechaRegistro) BETWEEN '15/06/2023' AND '17/06/2023'
+
+
+

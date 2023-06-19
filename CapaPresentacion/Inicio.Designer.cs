@@ -42,11 +42,13 @@
             MenuClientes = new FontAwesome.Sharp.IconMenuItem();
             MenuProveedores = new FontAwesome.Sharp.IconMenuItem();
             MenuReportes = new FontAwesome.Sharp.IconMenuItem();
+            subMenuReportesCompras = new ToolStripMenuItem();
+            subMenuReportesVentas = new ToolStripMenuItem();
             MenuAcercaDe = new FontAwesome.Sharp.IconMenuItem();
             MenuTitulo = new MenuStrip();
             Contenedor = new Panel();
-            AD = new Label();
             iduss = new Label();
+            AD = new Label();
             Menu.SuspendLayout();
             Contenedor.SuspendLayout();
             SuspendLayout();
@@ -56,7 +58,7 @@
             Menu.Items.AddRange(new ToolStripItem[] { MenuUsuarios, MenuMantenedor, MenuVentas, MenuCompras, MenuClientes, MenuProveedores, MenuReportes, MenuAcercaDe });
             Menu.Location = new Point(0, 73);
             Menu.Name = "Menu";
-            Menu.Size = new Size(1294, 74);
+            Menu.Size = new Size(1494, 74);
             Menu.TabIndex = 0;
             Menu.Text = "menuStrip1";
             Menu.ItemClicked += Menu_ItemClicked;
@@ -208,6 +210,7 @@
             // MenuReportes
             // 
             MenuReportes.AutoSize = false;
+            MenuReportes.DropDownItems.AddRange(new ToolStripItem[] { subMenuReportesCompras, subMenuReportesVentas });
             MenuReportes.IconChar = FontAwesome.Sharp.IconChar.BarChart;
             MenuReportes.IconColor = Color.Black;
             MenuReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -217,7 +220,20 @@
             MenuReportes.Size = new Size(122, 70);
             MenuReportes.Text = "REPORTES";
             MenuReportes.TextImageRelation = TextImageRelation.ImageAboveText;
-            MenuReportes.Click += MenuReportes_Click;
+            // 
+            // subMenuReportesCompras
+            // 
+            subMenuReportesCompras.Name = "subMenuReportesCompras";
+            subMenuReportesCompras.Size = new Size(122, 22);
+            subMenuReportesCompras.Text = "Compras";
+            subMenuReportesCompras.Click += subMenuReportesCompras_Click;
+            // 
+            // subMenuReportesVentas
+            // 
+            subMenuReportesVentas.Name = "subMenuReportesVentas";
+            subMenuReportesVentas.Size = new Size(122, 22);
+            subMenuReportesVentas.Text = "Ventas";
+            subMenuReportesVentas.Click += subMenuReportesVentas_Click;
             // 
             // MenuAcercaDe
             // 
@@ -240,7 +256,7 @@
             MenuTitulo.Location = new Point(0, 0);
             MenuTitulo.Name = "MenuTitulo";
             MenuTitulo.RightToLeft = RightToLeft.Yes;
-            MenuTitulo.Size = new Size(1294, 73);
+            MenuTitulo.Size = new Size(1494, 73);
             MenuTitulo.TabIndex = 1;
             MenuTitulo.Text = "menuStrip2";
             // 
@@ -251,17 +267,8 @@
             Contenedor.Dock = DockStyle.Fill;
             Contenedor.Location = new Point(0, 147);
             Contenedor.Name = "Contenedor";
-            Contenedor.Size = new Size(1294, 639);
+            Contenedor.Size = new Size(1494, 639);
             Contenedor.TabIndex = 2;
-            // 
-            // AD
-            // 
-            AD.AutoSize = true;
-            AD.Location = new Point(1196, 569);
-            AD.Name = "AD";
-            AD.Size = new Size(13, 15);
-            AD.TabIndex = 0;
-            AD.Text = "a";
             // 
             // iduss
             // 
@@ -272,11 +279,20 @@
             iduss.TabIndex = 1;
             iduss.Text = "a";
             // 
+            // AD
+            // 
+            AD.AutoSize = true;
+            AD.Location = new Point(1196, 569);
+            AD.Name = "AD";
+            AD.Size = new Size(13, 15);
+            AD.TabIndex = 0;
+            AD.Text = "a";
+            // 
             // Inicio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1294, 786);
+            ClientSize = new Size(1494, 786);
             Controls.Add(Contenedor);
             Controls.Add(Menu);
             Controls.Add(MenuTitulo);
@@ -314,5 +330,7 @@
         private FontAwesome.Sharp.IconMenuItem subMenuVerDetallesCompras;
         private Label AD;
         private Label iduss;
+        private ToolStripMenuItem subMenuReportesCompras;
+        private ToolStripMenuItem subMenuReportesVentas;
     }
 }
