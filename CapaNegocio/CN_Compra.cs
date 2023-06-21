@@ -39,5 +39,10 @@ namespace CapaNegocio
             }
             return ObjCompra;
         }
+
+        public List<Compra> listarCompras()
+        {
+            return ObjCdCompra.listaCompras();
+        }
     }
 }

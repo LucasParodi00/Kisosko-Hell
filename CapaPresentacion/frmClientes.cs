@@ -43,6 +43,8 @@ namespace CapaPresentacion
                 });
 
             }
+
+            cboEstado.SelectedIndex = 1;
         }
         private void limpiarCampos()
         {
@@ -137,7 +139,7 @@ namespace CapaPresentacion
                     txtNombreYApellido.Text = dgvData.Rows[indice].Cells["NombreCompleto"].Value.ToString();
                     txtCorreo.Text = dgvData.Rows[indice].Cells["correo"].Value.ToString();
                     txtTelefono.Text = dgvData.Rows[indice].Cells["Telefono"].Value.ToString();
-                 
+
                     foreach (opcionCombo oc in cboEstado.Items)
                     {
                         if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvData.Rows[indice].Cells["EstadoValor"].Value))

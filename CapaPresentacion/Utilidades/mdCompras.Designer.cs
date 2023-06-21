@@ -28,34 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            dgvData = new DataGridView();
+            Fecha = new DataGridViewTextBoxColumn();
+            CodCompra = new DataGridViewTextBoxColumn();
+            NombreCompleto = new DataGridViewTextBoxColumn();
+            MontoTotal = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvData
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(124, 78);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(438, 463);
-            dataGridView1.TabIndex = 0;
+            dgvData.AllowUserToAddRows = false;
+            dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { Fecha, CodCompra, NombreCompleto, MontoTotal });
+            dgvData.Location = new Point(8, 12);
+            dgvData.Name = "dgvData";
+            dgvData.RowTemplate.Height = 25;
+            dgvData.Size = new Size(643, 507);
+            dgvData.TabIndex = 1;
+            dgvData.CellContentClick += dgvData_CellContentClick;
+            dgvData.CellDoubleClick += dgvData_CellDoubleClick;
+            // 
+            // Fecha
+            // 
+            Fecha.HeaderText = "FECHA";
+            Fecha.Name = "Fecha";
+            // 
+            // CodCompra
+            // 
+            CodCompra.HeaderText = "CODIGO DE VENTA";
+            CodCompra.Name = "CodCompra";
+            // 
+            // NombreCompleto
+            // 
+            NombreCompleto.HeaderText = "PROVEEDOR";
+            NombreCompleto.Name = "NombreCompleto";
+            NombreCompleto.Width = 250;
+            // 
+            // MontoTotal
+            // 
+            MontoTotal.HeaderText = "MONTO TOTAL";
+            MontoTotal.Name = "MontoTotal";
+            MontoTotal.Width = 150;
             // 
             // mdCompras
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1110, 620);
-            Controls.Add(dataGridView1);
+            ClientSize = new Size(654, 521);
+            Controls.Add(dgvData);
             Name = "mdCompras";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "mdCompras";
             Load += mdCompras_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvData).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgvData;
+        private DataGridViewTextBoxColumn Fecha;
+        private DataGridViewTextBoxColumn CodCompra;
+        private DataGridViewTextBoxColumn NombreCompleto;
+        private DataGridViewTextBoxColumn MontoTotal;
     }
 }

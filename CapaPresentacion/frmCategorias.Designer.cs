@@ -61,6 +61,7 @@ namespace CapaPresentacion
             txtIndice.Size = new Size(40, 23);
             txtIndice.TabIndex = 46;
             txtIndice.Text = "-1";
+            txtIndice.Visible = false;
             // 
             // txttId
             // 
@@ -70,14 +71,15 @@ namespace CapaPresentacion
             txttId.Size = new Size(40, 23);
             txttId.TabIndex = 44;
             txttId.Text = "0";
+            txttId.Visible = false;
             // 
             // label10
             // 
             label10.BackColor = SystemColors.ButtonFace;
-            label10.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label10.Location = new Point(294, 48);
             label10.Name = "label10";
-            label10.Size = new Size(785, 41);
+            label10.Size = new Size(746, 41);
             label10.TabIndex = 43;
             label10.Text = "CATEGORIAS";
             // 
@@ -101,7 +103,7 @@ namespace CapaPresentacion
             dgvData.Name = "dgvData";
             dgvData.ReadOnly = true;
             dgvData.RowTemplate.Height = 28;
-            dgvData.Size = new Size(785, 503);
+            dgvData.Size = new Size(746, 503);
             dgvData.TabIndex = 42;
             dgvData.CellContentClick += dgvData_CellContentClick;
             // 
@@ -125,7 +127,7 @@ namespace CapaPresentacion
             Descripcion.HeaderText = "Descripcion";
             Descripcion.Name = "Descripcion";
             Descripcion.ReadOnly = true;
-            Descripcion.Width = 350;
+            Descripcion.Width = 550;
             // 
             // EstadoValor
             // 
@@ -145,7 +147,7 @@ namespace CapaPresentacion
             label9.AutoSize = true;
             label9.BackColor = SystemColors.ButtonFace;
             label9.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(46, 35);
+            label9.Location = new Point(36, 161);
             label9.Name = "label9";
             label9.Size = new Size(195, 28);
             label9.TabIndex = 41;
@@ -161,7 +163,7 @@ namespace CapaPresentacion
             btnEliminar.IconChar = FontAwesome.Sharp.IconChar.None;
             btnEliminar.IconColor = Color.Black;
             btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEliminar.Location = new Point(26, 584);
+            btnEliminar.Location = new Point(26, 554);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(225, 41);
             btnEliminar.TabIndex = 40;
@@ -179,7 +181,7 @@ namespace CapaPresentacion
             btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.None;
             btnLimpiar.IconColor = Color.Black;
             btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnLimpiar.Location = new Point(26, 537);
+            btnLimpiar.Location = new Point(26, 507);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(225, 41);
             btnLimpiar.TabIndex = 39;
@@ -196,7 +198,7 @@ namespace CapaPresentacion
             btnGuardar.IconChar = FontAwesome.Sharp.IconChar.None;
             btnGuardar.IconColor = Color.Black;
             btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnGuardar.Location = new Point(27, 490);
+            btnGuardar.Location = new Point(27, 460);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(224, 41);
             btnGuardar.TabIndex = 38;
@@ -217,9 +219,10 @@ namespace CapaPresentacion
             // 
             label8.AutoSize = true;
             label8.BackColor = SystemColors.ButtonFace;
+            label8.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
             label8.Location = new Point(27, 262);
             label8.Name = "label8";
-            label8.Size = new Size(42, 15);
+            label8.Size = new Size(52, 18);
             label8.TabIndex = 36;
             label8.Text = "Estado";
             // 
@@ -230,14 +233,16 @@ namespace CapaPresentacion
             txtDescripcionCategoria.Name = "txtDescripcionCategoria";
             txtDescripcionCategoria.Size = new Size(224, 23);
             txtDescripcionCategoria.TabIndex = 28;
+            txtDescripcionCategoria.TextAlign = HorizontalAlignment.Center;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.BackColor = SystemColors.ButtonFace;
+            label3.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
             label3.Location = new Point(27, 209);
             label3.Name = "label3";
-            label3.Size = new Size(69, 15);
+            label3.Size = new Size(80, 18);
             label3.TabIndex = 27;
             label3.Text = "Descripcion";
             // 

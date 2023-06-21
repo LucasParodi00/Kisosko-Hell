@@ -102,6 +102,7 @@
             // 
             // txtbusqueda
             // 
+            txtbusqueda.BorderStyle = BorderStyle.FixedSingle;
             txtbusqueda.Location = new Point(1009, 143);
             txtbusqueda.Margin = new Padding(4, 3, 4, 3);
             txtbusqueda.Name = "txtbusqueda";
@@ -112,10 +113,11 @@
             // 
             label11.AutoSize = true;
             label11.BackColor = Color.White;
-            label11.Location = new Point(789, 146);
+            label11.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label11.Location = new Point(776, 144);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(66, 15);
+            label11.Size = new Size(83, 18);
             label11.TabIndex = 235;
             label11.Text = "Buscar por:";
             // 
@@ -153,7 +155,7 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dgvdata.RowTemplate.Height = 28;
-            dgvdata.Size = new Size(1282, 380);
+            dgvdata.Size = new Size(1346, 390);
             dgvdata.TabIndex = 234;
             // 
             // FechaRegistro
@@ -243,7 +245,7 @@
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Padding = new Padding(7, 0, 0, 0);
-            label1.Size = new Size(1310, 452);
+            label1.Size = new Size(1361, 452);
             label1.TabIndex = 233;
             label1.TextAlign = ContentAlignment.MiddleLeft;
             label1.Click += label1_Click;
@@ -252,44 +254,49 @@
             // 
             txtfechafin.CustomFormat = "dd/MM/yyyy";
             txtfechafin.Format = DateTimePickerFormat.Short;
-            txtfechafin.Location = new Point(336, 70);
+            txtfechafin.Location = new Point(347, 70);
             txtfechafin.Margin = new Padding(4, 3, 4, 3);
             txtfechafin.Name = "txtfechafin";
             txtfechafin.Size = new Size(112, 23);
             txtfechafin.TabIndex = 229;
+            txtfechafin.ValueChanged += txtfechafin_ValueChanged;
             // 
             // txtfechainicio
             // 
             txtfechainicio.CustomFormat = "dd/MM/yyyy";
             txtfechainicio.Format = DateTimePickerFormat.Short;
-            txtfechainicio.Location = new Point(117, 70);
+            txtfechainicio.Location = new Point(128, 70);
             txtfechainicio.Margin = new Padding(4, 3, 4, 3);
             txtfechainicio.Name = "txtfechainicio";
             txtfechainicio.Size = new Size(112, 23);
             txtfechainicio.TabIndex = 227;
+            txtfechainicio.ValueChanged += txtfechainicio_ValueChanged;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.White;
-            label4.Location = new Point(30, 72);
+            label4.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label4.Location = new Point(30, 73);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(73, 15);
+            label4.Size = new Size(90, 18);
             label4.TabIndex = 228;
             label4.Text = "Fecha Inicio:";
+            label4.Click += label4_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.White;
-            label3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(254, 70);
+            label3.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label3.Location = new Point(264, 73);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(64, 15);
+            label3.Size = new Size(75, 18);
             label3.TabIndex = 226;
             label3.Text = "Fecha Fin:";
+            label3.Click += label3_Click;
             // 
             // label2
             // 
@@ -344,7 +351,7 @@
             btnbuscarresultado.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnbuscarresultado.IconSize = 17;
             btnbuscarresultado.ImageAlign = ContentAlignment.TopCenter;
-            btnbuscarresultado.Location = new Point(456, 69);
+            btnbuscarresultado.Location = new Point(467, 69);
             btnbuscarresultado.Margin = new Padding(4, 3, 4, 3);
             btnbuscarresultado.Name = "btnbuscarresultado";
             btnbuscarresultado.Size = new Size(91, 24);
@@ -380,7 +387,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1328, 595);
+            ClientSize = new Size(1368, 595);
             Controls.Add(iconButton1);
             Controls.Add(btnbuscarresultado);
             Controls.Add(btnbuscar);

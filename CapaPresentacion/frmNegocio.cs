@@ -1,4 +1,5 @@
-﻿using CapaEntidad;
+﻿using CapaDatos;
+using CapaEntidad;
 using CapaNegocio;
 
 namespace CapaPresentacion
@@ -81,6 +82,79 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Error", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txtNombreCopia.Text != "")
+            {
+                CN_BDD ObjBDD = new CN_BDD();
+
+                string nombre = txtNombreCopia.Text;
+
+                bool resultado = ObjBDD.copiaSeguridad(nombre);
+
+                if (resultado)
+                {
+                    MessageBox.Show("Se realizo correctamente la copia de seguridad", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNombreCopia.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo realizar la copia ", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe completar el campo ", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void btnCargarCopia_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                CN_BDD ObjBDD = new CN_BDD();
+
+                bool resultado = ObjBDD.restaurarBdd(txtRuta.Text);
+
+                if (resultado)
+                {
+                    MessageBox.Show("BASE DE DATOS RESTAURADA EXITOSAMENTE ", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtRuta.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrio un error, no se pudo restaurar la BDD", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error en el proceso de carga", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        private void btnBuscarCopia_Click(object sender, EventArgs e)
+        {
+            string ruta = "";
+
+            OpenFileDialog archivo = new OpenFileDialog();
+            archivo.Filter = "Respaldos SQL (*.bak)|";
+            archivo.Title = "Seleccionar Respaldo";
+            archivo.InitialDirectory = "D:\\LucasParodi\\UNNE\\Taller de Programacion II\\Proyecto\\TallerII\\ProyectoTallerII\\ProyectoTallerII\\BDD\\Respaldos";
+
+            if (archivo.ShowDialog() == DialogResult.OK)
+            {
+                ruta = archivo.FileName;
+                txtRuta.Text = ruta;
+            }
+
         }
     }
 }

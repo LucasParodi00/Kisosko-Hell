@@ -75,30 +75,32 @@
             // txttId
             // 
             txttId.BorderStyle = BorderStyle.FixedSingle;
-            txttId.Location = new Point(180, 47);
+            txttId.Location = new Point(282, 12);
             txttId.Name = "txttId";
             txttId.Size = new Size(40, 23);
             txttId.TabIndex = 44;
             txttId.Text = "0";
+            txttId.Visible = false;
             // 
             // label10
             // 
             label10.BackColor = SystemColors.ButtonFace;
-            label10.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label10.Location = new Point(283, 29);
             label10.Name = "label10";
             label10.Size = new Size(785, 41);
             label10.TabIndex = 43;
-            label10.Text = "PRODUCTOS";
+            label10.Text = "LISTA DE PRODUCTOS";
             // 
             // txtIndice
             // 
             txtIndice.BorderStyle = BorderStyle.FixedSingle;
-            txtIndice.Location = new Point(134, 47);
+            txtIndice.Location = new Point(236, 12);
             txtIndice.Name = "txtIndice";
             txtIndice.Size = new Size(40, 23);
             txtIndice.TabIndex = 46;
             txtIndice.Text = "-1";
+            txtIndice.Visible = false;
             // 
             // dgvData
             // 
@@ -214,7 +216,7 @@
             label9.AutoSize = true;
             label9.BackColor = SystemColors.ButtonFace;
             label9.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(36, 16);
+            label9.Location = new Point(36, 29);
             label9.Name = "label9";
             label9.Size = new Size(194, 28);
             label9.TabIndex = 41;
@@ -286,21 +288,25 @@
             // 
             label8.AutoSize = true;
             label8.BackColor = SystemColors.ButtonFace;
-            label8.Location = new Point(19, 394);
+            label8.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label8.Location = new Point(19, 391);
             label8.Name = "label8";
-            label8.Size = new Size(42, 15);
+            label8.Size = new Size(52, 18);
             label8.TabIndex = 36;
             label8.Text = "Estado";
+            label8.Click += label8_Click;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.BackColor = SystemColors.ButtonFace;
-            label7.Location = new Point(19, 340);
+            label7.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label7.Location = new Point(19, 337);
             label7.Name = "label7";
-            label7.Size = new Size(58, 15);
+            label7.Size = new Size(69, 18);
             label7.TabIndex = 35;
             label7.Text = "Categoria";
+            label7.Click += label7_Click;
             // 
             // txtDescripcion
             // 
@@ -314,11 +320,13 @@
             // 
             s.AutoSize = true;
             s.BackColor = SystemColors.ButtonFace;
-            s.Location = new Point(19, 179);
+            s.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            s.Location = new Point(19, 176);
             s.Name = "s";
-            s.Size = new Size(69, 15);
+            s.Size = new Size(80, 18);
             s.TabIndex = 30;
             s.Text = "Descripcion";
+            s.Click += s_Click;
             // 
             // txtNombreProducto
             // 
@@ -332,11 +340,13 @@
             // 
             a.AutoSize = true;
             a.BackColor = SystemColors.ButtonFace;
-            a.Location = new Point(19, 126);
+            a.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            a.Location = new Point(19, 123);
             a.Name = "a";
-            a.Size = new Size(51, 15);
+            a.Size = new Size(60, 18);
             a.TabIndex = 28;
             a.Text = "Nombre";
+            a.Click += a_Click;
             // 
             // txtCodigoProducto
             // 
@@ -350,11 +360,13 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = SystemColors.ButtonFace;
-            label2.Location = new Point(19, 70);
+            label2.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label2.Location = new Point(19, 67);
             label2.Name = "label2";
-            label2.Size = new Size(46, 15);
+            label2.Size = new Size(51, 18);
             label2.TabIndex = 26;
             label2.Text = "Codigo";
+            label2.Click += label2_Click;
             // 
             // label1
             // 

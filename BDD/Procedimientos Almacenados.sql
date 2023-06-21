@@ -55,7 +55,7 @@ AS
 			Clave = @Clave,
 			IdRol = @IdRol,
 			Estado = @Estado
-			WHERE Documento = @Documento
+			WHERE @IdUsuario = IdUsuario
 			SET @Respuesta = 1
 			SET @Mensaje = ''
 		END
@@ -301,7 +301,7 @@ CREATE PROCEDURE SP_ModificarCliente (
 @Correo VARCHAR (50),
 @Telefono VARCHAR (50),
 @Estado BIT,
-@Resultado INT OUTPUT,
+@Resultado BIT OUTPUT,
 @Mensaje VARCHAR (500) OUTPUT
 )
 AS 
@@ -315,12 +315,12 @@ AS
 		Correo = @Correo,
 		Telefono = @Telefono,
 		Estado = @Estado
-		WHERE IdCliente = IdCliente
+		WHERE @IdCliente = IdCliente
 	END
 	ELSE
 	BEGIN
 		SET @Resultado = 0
-		SET @Mensaje = 'El numero de documento ya esta registrado'
+		SET @Mensaje = 'El numero de documento ya esta registradoooooooooooooooooooo'
 	END
 GO
 
@@ -415,6 +415,7 @@ TABLE (
 	Cantidad INT NULL,
 	MontoTotal DECIMAL (18,2) NULL
 )
+GO
 
 CREATE PROCEDURE SP_RegistrarCompra (
 @IdUsuario INT,
@@ -470,6 +471,7 @@ PrecioVenta DECIMAL (18,2) NULL,
 Cantidad INT NULL,
 SubTotal DECIMAL (18,2) NULL
 )
+GO
 
 CREATE PROCEDURE SP_RegistrarVenta (
 @IdUsuario INT,

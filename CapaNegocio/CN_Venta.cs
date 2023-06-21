@@ -34,10 +34,28 @@ namespace CapaNegocio
 
         }
 
-        public bool sumarStock (int idProducto, int cantidad)
+        public bool sumarStock(int idProducto, int cantidad)
         {
-            return ObjCdVenta.sumarStock(idProducto, cantidad); 
+            return ObjCdVenta.sumarStock(idProducto, cantidad);
         }
 
+        public Venta ObtenerVenta(string numero)
+        {
+            Venta ObjVenta = ObjCdVenta.ObtenerVenta(numero);
+
+            if (ObjVenta.IdVenta != 0)
+            {
+                List<DetalleVenta> oDetalleVenta = ObjCdVenta.ObtenerDetalleVenta(ObjVenta.IdVenta);
+                ObjVenta.ObjDetalleVenta = oDetalleVenta;
+            }
+
+            return ObjVenta;
+
+        }
+
+        public List<Venta> listaVentas()
+        {
+            return ObjCdVenta.listaVentas();
+        }
     }
 }

@@ -71,7 +71,7 @@
             dgvData.Name = "dgvData";
             dgvData.ReadOnly = true;
             dgvData.RowTemplate.Height = 28;
-            dgvData.Size = new Size(579, 503);
+            dgvData.Size = new Size(805, 503);
             dgvData.TabIndex = 44;
             dgvData.CellDoubleClick += dgvData_CellDoubleClick;
             // 
@@ -109,31 +109,28 @@
             stock.HeaderText = "STOCK";
             stock.Name = "stock";
             stock.ReadOnly = true;
-            stock.Visible = false;
-            stock.Width = 30;
+            stock.Width = 75;
             // 
             // PrecioCompra
             // 
-            PrecioCompra.HeaderText = "PRECIO C";
+            PrecioCompra.HeaderText = "ULTIMA COMPRA";
             PrecioCompra.Name = "PrecioCompra";
             PrecioCompra.ReadOnly = true;
             PrecioCompra.Resizable = DataGridViewTriState.True;
-            PrecioCompra.Visible = false;
             PrecioCompra.Width = 75;
             // 
             // PrecioVenta
             // 
-            PrecioVenta.HeaderText = "PRECIO V";
+            PrecioVenta.HeaderText = "ULTIMA VENTA";
             PrecioVenta.Name = "PrecioVenta";
             PrecioVenta.ReadOnly = true;
-            PrecioVenta.Visible = false;
             PrecioVenta.Width = 75;
             // 
             // mdProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(595, 611);
+            ClientSize = new Size(820, 611);
             Controls.Add(label10);
             Controls.Add(dgvData);
             Name = "mdProducto";

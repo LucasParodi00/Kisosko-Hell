@@ -21,6 +21,7 @@ namespace CapaPresentacion
             cboTipoDocumento.Items.Add(new Utilidades.opcionCombo() { Valor = "Factura", Texto = "Factura" });
             cboTipoDocumento.DisplayMember = "Texto";
             cboTipoDocumento.ValueMember = "Valor";
+            cboTipoDocumento.SelectedIndex = 1;
 
             txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
@@ -29,47 +30,17 @@ namespace CapaPresentacion
 
 
 
+
         }
 
         private void btnBuscarProveedor_Click(object sender, EventArgs e)
         {
-            using (var modal = new mdProveedor())
-            {
-                var resultado = modal.ShowDialog();
 
-                if (resultado == DialogResult.OK)
-                {
-                    txtIdProveedor.Text = modal._Proveedor.IdProveedor.ToString();
-                    txtDocProveedor.Text = modal._Proveedor.Documento.ToString();
-                    txtNombreProveedor.Text = modal._Proveedor.RazonSocial.ToString();
-                }
-                else
-                {
-                    txtDocProveedor.Select();
-                }
-
-            }
         }
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
-            using (var modal = new mdProducto())
-            {
-                var resultado = modal.ShowDialog();
 
-                if (resultado == DialogResult.OK)
-                {
-                    txtIdProducto.Text = modal._Producto.IdProducto.ToString();
-                    txtNombreProducto.Text = modal._Producto.Nombre.ToString();
-                    txtCodProducto.Text = modal._Producto.Codigo.ToString();
-                    txtPrecioCompra.Select();
-                }
-                else
-                {
-                    txtPrecioCompra.Select();
-                }
-
-            }
         }
 
         private void txtCodProducto_KeyDown(object sender, KeyEventArgs e)
@@ -97,56 +68,7 @@ namespace CapaPresentacion
         {
 
 
-            decimal precioCompra = 0;
-            decimal precioVenta = 0;
-            bool producto_existe = false;
 
-            if (int.Parse(txtIdProducto.Text) == 0)
-            {
-
-                MessageBox.Show("Debe agregar un producto primero", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!decimal.TryParse(txtPrecioCompra.Text, out precioCompra))
-            {
-                MessageBox.Show("Precio Compra - Formato de moneda incorrecta", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtPrecioCompra.Select();
-                return;
-            }
-
-            if (!decimal.TryParse(txtPrecioVenta.Text, out precioVenta))
-            {
-                MessageBox.Show("Precio Venta - Formato de moneda incorrecta", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtPrecioVenta.Select();
-                return;
-            }
-
-            foreach (DataGridViewRow fila in dgvData.Rows)
-            {
-                if (fila.Cells["IdProducto"].Value.ToString() == txtIdProducto.Text)
-                {
-                    producto_existe = true;
-                    break;
-                }
-            }
-
-            if (!producto_existe)
-            {
-                dgvData.Rows.Add(new object[]
-                {
-                    txtIdProducto.Text,
-                    txtNombreProducto.Text,
-                    precioCompra.ToString("0.00"),
-                    precioVenta.ToString("0.00"),
-                    txtCantidad.Value.ToString(),
-                    (txtCantidad.Value * precioCompra).ToString("0.00")
-                });
-
-                calcularTotal();
-                limpiarProducto();
-                txtCodProducto.Select();
-            }
         }
 
         private void limpiarProducto()
@@ -311,6 +233,106 @@ namespace CapaPresentacion
             else
             {
                 MessageBox.Show(Mensaje, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BTT_Click(object sender, EventArgs e)
+        {
+            using (var modal = new mdProducto())
+            {
+                var resultado = modal.ShowDialog();
+
+                if (resultado == DialogResult.OK)
+                {
+                    txtIdProducto.Text = modal._Producto.IdProducto.ToString();
+                    txtNombreProducto.Text = modal._Producto.Nombre.ToString();
+                    txtCodProducto.Text = modal._Producto.Codigo.ToString();
+                    txtPrecioCompra.Select();
+                }
+                else
+                {
+                    txtPrecioCompra.Select();
+                }
+
+            }
+        }
+
+        private void BTT2_Click(object sender, EventArgs e)
+        {
+            using (var modal = new mdProveedor())
+            {
+                var resultado = modal.ShowDialog();
+
+                if (resultado == DialogResult.OK)
+                {
+                    txtIdProveedor.Text = modal._Proveedor.IdProveedor.ToString();
+                    txtDocProveedor.Text = modal._Proveedor.Documento.ToString();
+                    txtNombreProveedor.Text = modal._Proveedor.RazonSocial.ToString();
+                }
+                else
+                {
+                    txtDocProveedor.Select();
+                }
+
+            }
+        }
+
+        private void plus_Click(object sender, EventArgs e)
+        {
+            decimal precioCompra = 0;
+            decimal precioVenta = 0;
+            bool producto_existe = false;
+
+            if (int.Parse(txtIdProducto.Text) == 0)
+            {
+
+                MessageBox.Show("Debe agregar un producto primero", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!decimal.TryParse(txtPrecioCompra.Text, out precioCompra))
+            {
+                MessageBox.Show("Precio Compra - Formato de moneda incorrecta", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPrecioCompra.Select();
+                return;
+            }
+
+            if (!decimal.TryParse(txtPrecioVenta.Text, out precioVenta))
+            {
+                MessageBox.Show("Precio Venta - Formato de moneda incorrecta", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPrecioVenta.Select();
+                return;
+            }
+
+            foreach (DataGridViewRow fila in dgvData.Rows)
+            {
+                if (fila.Cells["IdProducto"].Value.ToString() == txtIdProducto.Text)
+                {
+                    producto_existe = true;
+                    break;
+                }
+            }
+
+            if (!producto_existe)
+            {
+                dgvData.Rows.Add(new object[]
+                {
+                    txtIdProducto.Text,
+                    txtNombreProducto.Text,
+                    precioCompra.ToString("0.00"),
+                    precioVenta.ToString("0.00"),
+                    txtCantidad.Value.ToString(),
+                    (txtCantidad.Value * precioCompra).ToString("0.00")
+                });
+
+                calcularTotal();
+                limpiarProducto();
+                txtCodProducto.Select();
             }
         }
     }

@@ -1,14 +1,6 @@
 ﻿using CapaEntidad;
 using CapaNegocio;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using CapaPresentacion.Utilidades;
 
 namespace CapaPresentacion
 {
@@ -23,36 +15,52 @@ namespace CapaPresentacion
 
         private void frmDetalleCompras_Load(object sender, EventArgs e)
         {
+            txtDocumentoBuscar.Select();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Compra ObjCompra = new CN_Compra().ObtenerCompra(txtDocumentoBuscar.Text);
-
-            if (ObjCompra.IdCompra != 0)
+            if (txtDocumentoBuscar.Text != "")
             {
-                txtNroDocumentoCompra.Text = ObjCompra.NumeroDocumento;
-                txtFechaCompra.Text = ObjCompra.FechaRegistro;
-                txtTipoDocumento.Text = ObjCompra.TipoDocumento;
-                txtUsuario.Text = ObjCompra.ObjUsuario.NombreCompleto;
-                txtDocumentoProveedor.Text = ObjCompra.ObjProveedor.Documento;
-                txtRazonSocial.Text = ObjCompra.ObjProveedor.RazonSocial;
+                Compra ObjCompra = new CN_Compra().ObtenerCompra(txtDocumentoBuscar.Text);
 
-                dgvData.Rows.Clear();
-
-                foreach (DetalleCompra dc in ObjCompra.ObjDetalleCompra)
+                if (ObjCompra.IdCompra != 0)
                 {
-                    dgvData.Rows.Add(new object[] {
+                    txtNroDocumentoCompra.Text = ObjCompra.NumeroDocumento;
+                    txtFechaCompra.Text = ObjCompra.FechaRegistro;
+                    txtTipoDocumento.Text = ObjCompra.TipoDocumento;
+                    txtUsuario.Text = ObjCompra.ObjUsuario.NombreCompleto;
+                    txtDocumentoProveedor.Text = ObjCompra.ObjProveedor.Documento;
+                    txtRazonSocial.Text = ObjCompra.ObjProveedor.RazonSocial;
 
-                        dc.ObjProducto.Nombre,
-                        dc.PrecioCompra,
-                        dc.Cantidad,
-                        dc.MontoTotal
-                    });
+                    dgvData.Rows.Clear();
+
+                    foreach (DetalleCompra dc in ObjCompra.ObjDetalleCompra)
+                    {
+                        dgvData.Rows.Add(new object[] {
+
+                            dc.ObjProducto.Nombre,
+                            dc.PrecioCompra,
+                            dc.Cantidad,
+                            dc.MontoTotal
+                        });
+                    }
+
+                    txtMontoTotal.Text = ObjCompra.MontoTotal.ToString("0.00");
                 }
+            }
+            else
+            {
+                using( var modal = new Utilidades.mdCompras() ) 
+                {
+                    var resultado = modal.ShowDialog();
 
-                txtMontoTotal.Text = ObjCompra.MontoTotal.ToString("0.00");
-
+                    if ( resultado == DialogResult.OK )
+                    {
+                        txtDocumentoBuscar.Text = modal._Compra.NumeroDocumento;
+                        btnBuscar_Click(sender, new EventArgs());
+                    }
+                }
             }
         }
 
@@ -67,6 +75,7 @@ namespace CapaPresentacion
             txtMontoTotal.Text = "";
             txtUsuario.Text = "";
             txtNroDocumentoCompra.Text = "";
+            txtDocumentoBuscar.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)

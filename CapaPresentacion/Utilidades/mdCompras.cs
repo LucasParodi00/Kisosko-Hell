@@ -1,13 +1,5 @@
 ﻿using CapaEntidad;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using CapaNegocio;
 
 namespace CapaPresentacion.Utilidades
 {
@@ -24,6 +16,47 @@ namespace CapaPresentacion.Utilidades
         private void mdCompras_Load(object sender, EventArgs e)
         {
 
+            List<Compra> lista = new CN_Compra().listarCompras();
+
+            foreach (Compra compra in lista)
+            {
+                dgvData.Rows.Add(new object[]
+                {
+                    compra.FechaRegistro,
+                    compra.NumeroDocumento,
+                    compra.NombreCompleto,
+                    compra.MontoTotal
+                });
+            }
+
+
+        }
+
+        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int iRow = e.RowIndex;
+            int iColum = e.ColumnIndex;
+
+            if (iRow >= 0 && iColum >= 0)
+            {
+
+                _Compra = new Compra()
+                {
+                    NumeroDocumento = dgvData.Rows[iRow].Cells["CodCompra"].Value.ToString()
+                };
+                //string CodVenta = dgvData.Rows[iRow].Cells["CodVenta"].Value.ToString();
+
+                //using frmDetalleVenta frmDetalleVenta = new frmDetalleVenta(CodVenta);
+
+                this.Close();
+                this.DialogResult = DialogResult.OK;
+
+            }
         }
     }
 }

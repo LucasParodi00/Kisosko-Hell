@@ -46,15 +46,16 @@
             subMenuReportesVentas = new ToolStripMenuItem();
             MenuAcercaDe = new FontAwesome.Sharp.IconMenuItem();
             MenuTitulo = new MenuStrip();
-            Contenedor = new Panel();
-            iduss = new Label();
             AD = new Label();
+            iduss = new Label();
+            Contenedor = new Panel();
             Menu.SuspendLayout();
             Contenedor.SuspendLayout();
             SuspendLayout();
             // 
             // Menu
             // 
+            Menu.BackColor = Color.LightBlue;
             Menu.Items.AddRange(new ToolStripItem[] { MenuUsuarios, MenuMantenedor, MenuVentas, MenuCompras, MenuClientes, MenuProveedores, MenuReportes, MenuAcercaDe });
             Menu.Location = new Point(0, 73);
             Menu.Name = "Menu";
@@ -238,21 +239,21 @@
             // MenuAcercaDe
             // 
             MenuAcercaDe.AutoSize = false;
-            MenuAcercaDe.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
+            MenuAcercaDe.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
             MenuAcercaDe.IconColor = Color.Black;
             MenuAcercaDe.IconFont = FontAwesome.Sharp.IconFont.Auto;
             MenuAcercaDe.IconSize = 60;
             MenuAcercaDe.ImageScaling = ToolStripItemImageScaling.None;
             MenuAcercaDe.Name = "MenuAcercaDe";
             MenuAcercaDe.Size = new Size(122, 70);
-            MenuAcercaDe.Text = "ACERCA DE";
+            MenuAcercaDe.Text = "EMPRESA";
             MenuAcercaDe.TextImageRelation = TextImageRelation.ImageAboveText;
             MenuAcercaDe.Click += MenuAcercaDe_Click;
             // 
             // MenuTitulo
             // 
             MenuTitulo.AutoSize = false;
-            MenuTitulo.BackColor = Color.Ivory;
+            MenuTitulo.BackColor = Color.LightBlue;
             MenuTitulo.Location = new Point(0, 0);
             MenuTitulo.Name = "MenuTitulo";
             MenuTitulo.RightToLeft = RightToLeft.Yes;
@@ -260,8 +261,27 @@
             MenuTitulo.TabIndex = 1;
             MenuTitulo.Text = "menuStrip2";
             // 
+            // AD
+            // 
+            AD.AutoSize = true;
+            AD.Location = new Point(1123, 615);
+            AD.Name = "AD";
+            AD.Size = new Size(13, 15);
+            AD.TabIndex = 0;
+            AD.Text = "a";
+            // 
+            // iduss
+            // 
+            iduss.AutoSize = true;
+            iduss.Location = new Point(1080, 615);
+            iduss.Name = "iduss";
+            iduss.Size = new Size(13, 15);
+            iduss.TabIndex = 1;
+            iduss.Text = "a";
+            // 
             // Contenedor
             // 
+            Contenedor.BackgroundImageLayout = ImageLayout.Stretch;
             Contenedor.Controls.Add(iduss);
             Contenedor.Controls.Add(AD);
             Contenedor.Dock = DockStyle.Fill;
@@ -269,24 +289,7 @@
             Contenedor.Name = "Contenedor";
             Contenedor.Size = new Size(1494, 639);
             Contenedor.TabIndex = 2;
-            // 
-            // iduss
-            // 
-            iduss.AutoSize = true;
-            iduss.Location = new Point(1196, 598);
-            iduss.Name = "iduss";
-            iduss.Size = new Size(13, 15);
-            iduss.TabIndex = 1;
-            iduss.Text = "a";
-            // 
-            // AD
-            // 
-            AD.AutoSize = true;
-            AD.Location = new Point(1196, 569);
-            AD.Name = "AD";
-            AD.Size = new Size(13, 15);
-            AD.TabIndex = 0;
-            AD.Text = "a";
+            Contenedor.Paint += Contenedor_Paint;
             // 
             // Inicio
             // 
@@ -321,16 +324,16 @@
         private FontAwesome.Sharp.IconMenuItem MenuProveedores;
         private FontAwesome.Sharp.IconMenuItem MenuReportes;
         private FontAwesome.Sharp.IconMenuItem MenuAcercaDe;
-        private Panel Contenedor;
         private FontAwesome.Sharp.IconMenuItem subMenuCategorias;
         private FontAwesome.Sharp.IconMenuItem subMenuProductos;
         private FontAwesome.Sharp.IconMenuItem subMenuRegistrarVenta;
         private FontAwesome.Sharp.IconMenuItem subMenuVerDetalleVenta;
         private FontAwesome.Sharp.IconMenuItem subMenuRegistrarCompra;
         private FontAwesome.Sharp.IconMenuItem subMenuVerDetallesCompras;
-        private Label AD;
-        private Label iduss;
         private ToolStripMenuItem subMenuReportesCompras;
         private ToolStripMenuItem subMenuReportesVentas;
+        private Label AD;
+        private Label iduss;
+        private Panel Contenedor;
     }
 }

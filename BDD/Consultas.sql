@@ -5,7 +5,7 @@ SELECT * FROM usuario;
 GO
 SELECT * FROM rol;
 GO
-SELECT * FROM permiso;
+SELECT * FROM permiso WHERE IdRol = 1;
 GO
 SELECT * FROM categoria;
 GO
@@ -75,3 +75,19 @@ WHERE CONVERT(DATE, compra.FechaRegistro) BETWEEN '15/06/2023' AND '17/06/2023'
 
 
 
+
+SELECT venta.IdVenta, usuario.NombreCompleto, venta.DocumentoCliente, venta.NombreCliente, venta.TipoDocumento,
+	   venta.NumeroDocumento, venta.MontoPago, venta.MontoCambio, venta.MontoTotal, CONVERT(CHAR(10), venta.FechaRegistro, 103)[FechaRegistro]
+FROM venta
+JOIN usuario ON usuario.IdUsuario = venta.IdUsuario
+WHERE venta.NumeroDocumento = venta.NumeroDocumento
+
+     
+
+SELECT producto.Nombre, detalle_venta.PrecioVenta, detalle_venta.Cantidad, detalle_venta.SubTotal FROM detalle_venta
+JOIN producto ON producto.IdProducto = detalle_venta.IdProducto
+WHERE detalle_venta.IdVenta = @IdVenta
+
+SELECT * FROM cliente
+
+UPDATE cliente SET Telefono = REPLACE(Telefono, SUBSTRING(Telefono, 1, 4), '3795') WHERE IdCliente > 100

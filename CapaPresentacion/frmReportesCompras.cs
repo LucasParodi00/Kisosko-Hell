@@ -84,9 +84,9 @@ namespace CapaPresentacion
         {
             string columnaFiltro = ((opcionCombo)cbobusqueda.SelectedItem).Valor.ToString();
 
-            if(dgvdata.Rows.Count > 0 )
+            if (dgvdata.Rows.Count > 0)
             {
-                foreach(DataGridViewRow row in dgvdata.Rows)
+                foreach (DataGridViewRow row in dgvdata.Rows)
                 {
                     if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()))
                     {
@@ -102,14 +102,14 @@ namespace CapaPresentacion
 
         private void btnexportar_Click(object sender, EventArgs e)
         {
-            if(dgvdata.Rows.Count < 1)
+            if (dgvdata.Rows.Count < 1)
             {
                 MessageBox.Show("No hay registro para exportar", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
             {
-                DataTable dt = new DataTable(); 
+                DataTable dt = new DataTable();
 
                 foreach (DataGridViewColumn columna in dgvdata.Columns)
                 {
@@ -145,7 +145,7 @@ namespace CapaPresentacion
                 savefile.FileName = string.Format("ReporteCompras_{0}.xlsx", DateTime.Now.ToString("ddMMyyyy"));
                 savefile.Filter = "Excel Files | *.xlsx";
 
-                if(savefile.ShowDialog() == DialogResult.OK)
+                if (savefile.ShowDialog() == DialogResult.OK)
                 {
                     try
                     {

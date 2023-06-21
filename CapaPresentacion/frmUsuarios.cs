@@ -109,8 +109,8 @@ namespace CapaPresentacion
                     row.Cells["Clave"].Value = txtContraseña.Text;
                     row.Cells["IdRol"].Value = ((opcionCombo)cboRol.SelectedItem).Valor.ToString();
                     row.Cells["Rol"].Value = ((opcionCombo)cboRol.SelectedItem).Texto.ToString();
-                    row.Cells["EstadoValor"].Value = ((opcionCombo)cboRol.SelectedItem).Valor.ToString();
-                    row.Cells["Estado"].Value = ((opcionCombo)cboRol.SelectedItem).Texto.ToString();
+                    row.Cells["EstadoValor"].Value = ((opcionCombo)cboEstado.SelectedItem).Valor.ToString();
+                    row.Cells["Estado"].Value = ((opcionCombo)cboEstado.SelectedItem).Texto.ToString();
 
                     limpiarCampos();
 

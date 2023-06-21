@@ -36,14 +36,15 @@
             cboTipoDocumento = new ComboBox();
             label2 = new Label();
             groupBox2 = new GroupBox();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
             txtIdCliente = new TextBox();
-            btnBuscarCliente = new Button();
             txtNombreCliente = new TextBox();
             label4 = new Label();
             txtDocCliente = new TextBox();
             label5 = new Label();
             groupBox3 = new GroupBox();
             label11 = new Label();
+            BTT2 = new FontAwesome.Sharp.IconButton();
             txtCantidad = new NumericUpDown();
             txtStock = new TextBox();
             label9 = new Label();
@@ -51,12 +52,16 @@
             label8 = new Label();
             txtNombreProducto = new TextBox();
             txtIdProducto = new TextBox();
-            btnBuscarProducto = new Button();
             label6 = new Label();
             txtCodProducto = new TextBox();
             label7 = new Label();
-            btnAgregarCarrito = new Button();
             dgvData = new DataGridView();
+            IdProducto = new DataGridViewTextBoxColumn();
+            Producto = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Cantidad = new DataGridViewTextBoxColumn();
+            SubTotal = new DataGridViewTextBoxColumn();
+            BtnEliminar = new DataGridViewTextBoxColumn();
             txtPagaCon = new TextBox();
             label13 = new Label();
             txtVuelto = new TextBox();
@@ -64,12 +69,7 @@
             txtTotalAPagar = new TextBox();
             label14 = new Label();
             btnComprar = new Button();
-            IdProducto = new DataGridViewTextBoxColumn();
-            Producto = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Cantidad = new DataGridViewTextBoxColumn();
-            SubTotal = new DataGridViewTextBoxColumn();
-            BtnEliminar = new DataGridViewTextBoxColumn();
+            plus = new FontAwesome.Sharp.IconButton();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -81,7 +81,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(459, 41);
+            label1.Location = new Point(403, 41);
             label1.Name = "label1";
             label1.Size = new Size(190, 28);
             label1.TabIndex = 25;
@@ -92,7 +92,7 @@
             label10.BackColor = Color.White;
             label10.BorderStyle = BorderStyle.FixedSingle;
             label10.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(68, 9);
+            label10.Location = new Point(12, 9);
             label10.Name = "label10";
             label10.Size = new Size(1067, 608);
             label10.TabIndex = 24;
@@ -105,7 +105,7 @@
             groupBox1.Controls.Add(txtFecha);
             groupBox1.Controls.Add(cboTipoDocumento);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(88, 83);
+            groupBox1.Location = new Point(32, 83);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(450, 82);
             groupBox1.TabIndex = 26;
@@ -115,9 +115,10 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(190, 26);
+            label3.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label3.Location = new Point(191, 23);
             label3.Name = "label3";
-            label3.Size = new Size(96, 15);
+            label3.Size = new Size(116, 18);
             label3.TabIndex = 3;
             label3.Text = "Tipo Documento";
             // 
@@ -140,27 +141,43 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(6, 27);
+            label2.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label2.Location = new Point(7, 24);
             label2.Name = "label2";
-            label2.Size = new Size(38, 15);
+            label2.Size = new Size(47, 18);
             label2.TabIndex = 0;
             label2.Text = "Fecha";
             // 
             // groupBox2
             // 
             groupBox2.BackColor = Color.White;
+            groupBox2.Controls.Add(iconButton1);
             groupBox2.Controls.Add(txtIdCliente);
-            groupBox2.Controls.Add(btnBuscarCliente);
             groupBox2.Controls.Add(txtNombreCliente);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(txtDocCliente);
             groupBox2.Controls.Add(label5);
-            groupBox2.Location = new Point(550, 83);
+            groupBox2.Location = new Point(494, 83);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(552, 82);
             groupBox2.TabIndex = 27;
             groupBox2.TabStop = false;
             groupBox2.Text = "Informacion del Cliente";
+            // 
+            // iconButton1
+            // 
+            iconButton1.FlatStyle = FlatStyle.Flat;
+            iconButton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            iconButton1.IconColor = Color.Black;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.IconSize = 17;
+            iconButton1.Location = new Point(172, 44);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(34, 23);
+            iconButton1.TabIndex = 38;
+            iconButton1.UseVisualStyleBackColor = true;
+            iconButton1.Click += iconButton1_Click;
             // 
             // txtIdCliente
             // 
@@ -169,17 +186,6 @@
             txtIdCliente.Name = "txtIdCliente";
             txtIdCliente.Size = new Size(39, 23);
             txtIdCliente.TabIndex = 6;
-            // 
-            // btnBuscarCliente
-            // 
-            btnBuscarCliente.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnBuscarCliente.Location = new Point(172, 44);
-            btnBuscarCliente.Name = "btnBuscarCliente";
-            btnBuscarCliente.Size = new Size(34, 24);
-            btnBuscarCliente.TabIndex = 5;
-            btnBuscarCliente.Text = "B";
-            btnBuscarCliente.UseVisualStyleBackColor = true;
-            btnBuscarCliente.Click += btnBuscarCliente_Click;
             // 
             // txtNombreCliente
             // 
@@ -192,9 +198,10 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
             label4.Location = new Point(234, 27);
             label4.Name = "label4";
-            label4.Size = new Size(91, 15);
+            label4.Size = new Size(107, 18);
             label4.TabIndex = 3;
             label4.Text = "Nombre Cliente";
             // 
@@ -209,9 +216,10 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
             label5.Location = new Point(6, 27);
             label5.Name = "label5";
-            label5.Size = new Size(93, 15);
+            label5.Size = new Size(111, 18);
             label5.TabIndex = 0;
             label5.Text = "Nro Documento";
             // 
@@ -219,6 +227,7 @@
             // 
             groupBox3.BackColor = Color.White;
             groupBox3.Controls.Add(label11);
+            groupBox3.Controls.Add(BTT2);
             groupBox3.Controls.Add(txtCantidad);
             groupBox3.Controls.Add(txtStock);
             groupBox3.Controls.Add(label9);
@@ -226,11 +235,10 @@
             groupBox3.Controls.Add(label8);
             groupBox3.Controls.Add(txtNombreProducto);
             groupBox3.Controls.Add(txtIdProducto);
-            groupBox3.Controls.Add(btnBuscarProducto);
             groupBox3.Controls.Add(label6);
             groupBox3.Controls.Add(txtCodProducto);
             groupBox3.Controls.Add(label7);
-            groupBox3.Location = new Point(88, 171);
+            groupBox3.Location = new Point(32, 171);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(908, 97);
             groupBox3.TabIndex = 28;
@@ -240,11 +248,27 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(836, 26);
+            label11.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label11.Location = new Point(836, 23);
             label11.Name = "label11";
-            label11.Size = new Size(55, 15);
+            label11.Size = new Size(64, 18);
             label11.TabIndex = 14;
             label11.Text = "Cantidad";
+            // 
+            // BTT2
+            // 
+            BTT2.FlatStyle = FlatStyle.Flat;
+            BTT2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            BTT2.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            BTT2.IconColor = Color.Black;
+            BTT2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            BTT2.IconSize = 17;
+            BTT2.Location = new Point(163, 45);
+            BTT2.Name = "BTT2";
+            BTT2.Size = new Size(34, 23);
+            BTT2.TabIndex = 37;
+            BTT2.UseVisualStyleBackColor = true;
+            BTT2.Click += BTT2_Click;
             // 
             // txtCantidad
             // 
@@ -265,9 +289,10 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(737, 26);
+            label9.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label9.Location = new Point(737, 23);
             label9.Name = "label9";
-            label9.Size = new Size(36, 15);
+            label9.Size = new Size(43, 18);
             label9.TabIndex = 11;
             label9.Text = "Stock";
             // 
@@ -283,9 +308,10 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(628, 26);
+            label8.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label8.Location = new Point(628, 23);
             label8.Name = "label8";
-            label8.Size = new Size(40, 15);
+            label8.Size = new Size(46, 18);
             label8.TabIndex = 9;
             label8.Text = "Precio";
             // 
@@ -305,23 +331,13 @@
             txtIdProducto.Size = new Size(39, 23);
             txtIdProducto.TabIndex = 7;
             // 
-            // btnBuscarProducto
-            // 
-            btnBuscarProducto.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnBuscarProducto.Location = new Point(163, 44);
-            btnBuscarProducto.Name = "btnBuscarProducto";
-            btnBuscarProducto.Size = new Size(34, 24);
-            btnBuscarProducto.TabIndex = 7;
-            btnBuscarProducto.Text = "B";
-            btnBuscarProducto.UseVisualStyleBackColor = true;
-            btnBuscarProducto.Click += btnBuscarProducto_Click;
-            // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(223, 26);
+            label6.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label6.Location = new Point(223, 23);
             label6.Name = "label6";
-            label6.Size = new Size(56, 15);
+            label6.Size = new Size(65, 18);
             label6.TabIndex = 3;
             label6.Text = "Producto";
             // 
@@ -337,99 +353,24 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(6, 27);
+            label7.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label7.Location = new Point(6, 24);
             label7.Name = "label7";
-            label7.Size = new Size(84, 15);
+            label7.Size = new Size(100, 18);
             label7.TabIndex = 0;
             label7.Text = "Cod. Producto";
-            // 
-            // btnAgregarCarrito
-            // 
-            btnAgregarCarrito.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAgregarCarrito.ForeColor = Color.Green;
-            btnAgregarCarrito.Location = new Point(1008, 180);
-            btnAgregarCarrito.Name = "btnAgregarCarrito";
-            btnAgregarCarrito.Size = new Size(94, 88);
-            btnAgregarCarrito.TabIndex = 29;
-            btnAgregarCarrito.Text = "+";
-            btnAgregarCarrito.UseVisualStyleBackColor = true;
-            btnAgregarCarrito.Click += btnAgregarCarrito_Click;
             // 
             // dgvData
             // 
             dgvData.AllowUserToAddRows = false;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvData.Columns.AddRange(new DataGridViewColumn[] { IdProducto, Producto, Precio, Cantidad, SubTotal, BtnEliminar });
-            dgvData.Location = new Point(94, 294);
+            dgvData.Location = new Point(38, 294);
             dgvData.Name = "dgvData";
             dgvData.RowTemplate.Height = 25;
             dgvData.Size = new Size(1008, 239);
             dgvData.TabIndex = 30;
             dgvData.CellContentClick += dgvData_CellContentClick;
-            // 
-            // txtPagaCon
-            // 
-            txtPagaCon.BorderStyle = BorderStyle.FixedSingle;
-            txtPagaCon.Location = new Point(410, 563);
-            txtPagaCon.Name = "txtPagaCon";
-            txtPagaCon.Size = new Size(151, 23);
-            txtPagaCon.TabIndex = 6;
-            txtPagaCon.KeyDown += txtPagaCon_KeyDown;
-            txtPagaCon.KeyPress += txtPagaCon_KeyPress;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(375, 565);
-            label13.Name = "label13";
-            label13.Size = new Size(33, 15);
-            label13.TabIndex = 4;
-            label13.Text = "Paga";
-            // 
-            // txtVuelto
-            // 
-            txtVuelto.BorderStyle = BorderStyle.FixedSingle;
-            txtVuelto.Location = new Point(618, 563);
-            txtVuelto.Name = "txtVuelto";
-            txtVuelto.Size = new Size(151, 23);
-            txtVuelto.TabIndex = 32;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(574, 565);
-            label12.Name = "label12";
-            label12.Size = new Size(41, 15);
-            label12.TabIndex = 31;
-            label12.Text = "Vuelto";
-            // 
-            // txtTotalAPagar
-            // 
-            txtTotalAPagar.BorderStyle = BorderStyle.FixedSingle;
-            txtTotalAPagar.Location = new Point(191, 563);
-            txtTotalAPagar.Name = "txtTotalAPagar";
-            txtTotalAPagar.Size = new Size(151, 23);
-            txtTotalAPagar.TabIndex = 34;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(95, 565);
-            label14.Name = "label14";
-            label14.Size = new Size(90, 15);
-            label14.TabIndex = 33;
-            label14.Text = "TOTAL A PAGAR";
-            // 
-            // btnComprar
-            // 
-            btnComprar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnComprar.Location = new Point(962, 563);
-            btnComprar.Name = "btnComprar";
-            btnComprar.Size = new Size(140, 24);
-            btnComprar.TabIndex = 35;
-            btnComprar.Text = "COMPRAR";
-            btnComprar.UseVisualStyleBackColor = true;
-            btnComprar.Click += btnComprar_Click;
             // 
             // IdProducto
             // 
@@ -465,11 +406,96 @@
             BtnEliminar.HeaderText = "";
             BtnEliminar.Name = "BtnEliminar";
             // 
+            // txtPagaCon
+            // 
+            txtPagaCon.BorderStyle = BorderStyle.FixedSingle;
+            txtPagaCon.Location = new Point(488, 563);
+            txtPagaCon.Name = "txtPagaCon";
+            txtPagaCon.Size = new Size(151, 23);
+            txtPagaCon.TabIndex = 6;
+            txtPagaCon.KeyDown += txtPagaCon_KeyDown;
+            txtPagaCon.KeyPress += txtPagaCon_KeyPress;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label13.Location = new Point(442, 565);
+            label13.Name = "label13";
+            label13.Size = new Size(40, 18);
+            label13.TabIndex = 4;
+            label13.Text = "Paga";
+            // 
+            // txtVuelto
+            // 
+            txtVuelto.BorderStyle = BorderStyle.FixedSingle;
+            txtVuelto.Location = new Point(696, 563);
+            txtVuelto.Name = "txtVuelto";
+            txtVuelto.Size = new Size(151, 23);
+            txtVuelto.TabIndex = 32;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label12.Location = new Point(645, 565);
+            label12.Name = "label12";
+            label12.Size = new Size(48, 18);
+            label12.TabIndex = 31;
+            label12.Text = "Vuelto";
+            // 
+            // txtTotalAPagar
+            // 
+            txtTotalAPagar.BorderStyle = BorderStyle.FixedSingle;
+            txtTotalAPagar.Location = new Point(157, 563);
+            txtTotalAPagar.Name = "txtTotalAPagar";
+            txtTotalAPagar.Size = new Size(151, 23);
+            txtTotalAPagar.TabIndex = 34;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label14.Location = new Point(32, 565);
+            label14.Name = "label14";
+            label14.Size = new Size(119, 18);
+            label14.TabIndex = 33;
+            label14.Text = "TOTAL A PAGAR";
+            // 
+            // btnComprar
+            // 
+            btnComprar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnComprar.Location = new Point(906, 563);
+            btnComprar.Name = "btnComprar";
+            btnComprar.Size = new Size(140, 24);
+            btnComprar.TabIndex = 35;
+            btnComprar.Text = "COMPRAR";
+            btnComprar.UseVisualStyleBackColor = true;
+            btnComprar.Click += btnComprar_Click;
+            // 
+            // plus
+            // 
+            plus.Cursor = Cursors.Hand;
+            plus.FlatStyle = FlatStyle.Flat;
+            plus.IconChar = FontAwesome.Sharp.IconChar.Add;
+            plus.IconColor = Color.DarkGreen;
+            plus.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            plus.IconSize = 60;
+            plus.Location = new Point(963, 188);
+            plus.Name = "plus";
+            plus.Padding = new Padding(1, 0, 0, 0);
+            plus.Size = new Size(77, 73);
+            plus.TabIndex = 36;
+            plus.Text = " ";
+            plus.UseVisualStyleBackColor = true;
+            plus.Click += plus_Click;
+            // 
             // frmVentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1556, 837);
+            ClientSize = new Size(1556, 638);
+            Controls.Add(plus);
             Controls.Add(btnComprar);
             Controls.Add(txtTotalAPagar);
             Controls.Add(label14);
@@ -477,7 +503,6 @@
             Controls.Add(label12);
             Controls.Add(dgvData);
             Controls.Add(txtPagaCon);
-            Controls.Add(btnAgregarCarrito);
             Controls.Add(label13);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
@@ -510,7 +535,6 @@
         private Label label2;
         private GroupBox groupBox2;
         private TextBox txtIdCliente;
-        private Button btnBuscarCliente;
         private TextBox txtNombreCliente;
         private Label label4;
         private TextBox txtDocCliente;
@@ -524,11 +548,9 @@
         private Label label8;
         private TextBox txtNombreProducto;
         private TextBox txtIdProducto;
-        private Button btnBuscarProducto;
         private Label label6;
         private TextBox txtCodProducto;
         private Label label7;
-        private Button btnAgregarCarrito;
         private DataGridView dgvData;
         private TextBox txtPagaCon;
         private Label label13;
@@ -543,5 +565,8 @@
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn SubTotal;
         private DataGridViewTextBoxColumn BtnEliminar;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton BTT2;
+        private FontAwesome.Sharp.IconButton plus;
     }
 }

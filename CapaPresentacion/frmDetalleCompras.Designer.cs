@@ -64,7 +64,7 @@
             // 
             label1.BackColor = Color.White;
             label1.BorderStyle = BorderStyle.FixedSingle;
-            label1.Location = new Point(123, 19);
+            label1.Location = new Point(12, 9);
             label1.Name = "label1";
             label1.Size = new Size(1086, 605);
             label1.TabIndex = 0;
@@ -74,7 +74,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.White;
             label2.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(134, 22);
+            label2.Location = new Point(23, 12);
             label2.Name = "label2";
             label2.Size = new Size(218, 37);
             label2.TabIndex = 1;
@@ -84,27 +84,28 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.White;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(707, 32);
+            label3.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label3.Location = new Point(596, 22);
             label3.Name = "label3";
-            label3.Size = new Size(137, 21);
+            label3.Size = new Size(116, 18);
             label3.TabIndex = 2;
             label3.Text = "Nro. Documento";
             // 
             // txtDocumentoBuscar
             // 
             txtDocumentoBuscar.BorderStyle = BorderStyle.FixedSingle;
-            txtDocumentoBuscar.Location = new Point(850, 33);
+            txtDocumentoBuscar.Location = new Point(739, 23);
             txtDocumentoBuscar.Name = "txtDocumentoBuscar";
             txtDocumentoBuscar.Size = new Size(178, 23);
             txtDocumentoBuscar.TabIndex = 3;
+            txtDocumentoBuscar.TextAlign = HorizontalAlignment.Center;
             // 
             // btnBuscar
             // 
             btnBuscar.BackColor = SystemColors.ActiveCaption;
             btnBuscar.FlatAppearance.BorderColor = SystemColors.ActiveCaption;
             btnBuscar.FlatStyle = FlatStyle.Flat;
-            btnBuscar.Location = new Point(1034, 33);
+            btnBuscar.Location = new Point(923, 23);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(75, 23);
             btnBuscar.TabIndex = 4;
@@ -117,7 +118,7 @@
             btnLimpiar.BackColor = SystemColors.ActiveCaption;
             btnLimpiar.FlatAppearance.BorderColor = SystemColors.ActiveCaption;
             btnLimpiar.FlatStyle = FlatStyle.Flat;
-            btnLimpiar.Location = new Point(1115, 33);
+            btnLimpiar.Location = new Point(1004, 23);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(75, 23);
             btnLimpiar.TabIndex = 5;
@@ -134,7 +135,7 @@
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(txtFechaCompra);
             groupBox1.Controls.Add(label4);
-            groupBox1.Location = new Point(134, 73);
+            groupBox1.Location = new Point(23, 63);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(1056, 85);
             groupBox1.TabIndex = 6;
@@ -148,14 +149,15 @@
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(348, 23);
             txtUsuario.TabIndex = 10;
+            txtUsuario.TextAlign = HorizontalAlignment.Center;
             // 
             // Usuario
             // 
             Usuario.AutoSize = true;
-            Usuario.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            Usuario.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
             Usuario.Location = new Point(697, 24);
             Usuario.Name = "Usuario";
-            Usuario.Size = new Size(69, 21);
+            Usuario.Size = new Size(56, 18);
             Usuario.TabIndex = 11;
             Usuario.Text = "Usuario";
             // 
@@ -166,14 +168,15 @@
             txtTipoDocumento.Name = "txtTipoDocumento";
             txtTipoDocumento.Size = new Size(348, 23);
             txtTipoDocumento.TabIndex = 8;
+            txtTipoDocumento.TextAlign = HorizontalAlignment.Center;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
             label5.Location = new Point(280, 24);
             label5.Name = "label5";
-            label5.Size = new Size(48, 21);
+            label5.Size = new Size(41, 18);
             label5.TabIndex = 9;
             label5.Text = "Tipo ";
             // 
@@ -184,14 +187,15 @@
             txtFechaCompra.Name = "txtFechaCompra";
             txtFechaCompra.Size = new Size(191, 23);
             txtFechaCompra.TabIndex = 7;
+            txtFechaCompra.TextAlign = HorizontalAlignment.Center;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
             label4.Location = new Point(27, 24);
             label4.Name = "label4";
-            label4.Size = new Size(54, 21);
+            label4.Size = new Size(47, 18);
             label4.TabIndex = 7;
             label4.Text = "Fecha";
             // 
@@ -203,7 +207,7 @@
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(txtDocumentoProveedor);
             groupBox2.Controls.Add(label8);
-            groupBox2.Location = new Point(134, 164);
+            groupBox2.Location = new Point(23, 154);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(1056, 85);
             groupBox2.TabIndex = 12;
@@ -226,14 +230,15 @@
             txtRazonSocial.Name = "txtRazonSocial";
             txtRazonSocial.Size = new Size(430, 23);
             txtRazonSocial.TabIndex = 8;
+            txtRazonSocial.TextAlign = HorizontalAlignment.Center;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
             label7.Location = new Point(280, 19);
             label7.Name = "label7";
-            label7.Size = new Size(188, 21);
+            label7.Size = new Size(158, 18);
             label7.TabIndex = 9;
             label7.Text = "Nombre o Razon Social";
             // 
@@ -244,14 +249,15 @@
             txtDocumentoProveedor.Name = "txtDocumentoProveedor";
             txtDocumentoProveedor.Size = new Size(191, 23);
             txtDocumentoProveedor.TabIndex = 7;
+            txtDocumentoProveedor.TextAlign = HorizontalAlignment.Center;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
             label8.Location = new Point(27, 19);
             label8.Name = "label8";
-            label8.Size = new Size(133, 21);
+            label8.Size = new Size(111, 18);
             label8.TabIndex = 7;
             label8.Text = "Nro Documento";
             // 
@@ -260,7 +266,7 @@
             dgvData.AllowUserToAddRows = false;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvData.Columns.AddRange(new DataGridViewColumn[] { Producto, PrecioCompra, Cantidad, SubTotal });
-            dgvData.Location = new Point(134, 276);
+            dgvData.Location = new Point(23, 266);
             dgvData.Name = "dgvData";
             dgvData.RowTemplate.Height = 25;
             dgvData.Size = new Size(1056, 303);
@@ -293,19 +299,20 @@
             // txtMontoTotal
             // 
             txtMontoTotal.BorderStyle = BorderStyle.FixedSingle;
-            txtMontoTotal.Location = new Point(254, 582);
+            txtMontoTotal.Location = new Point(144, 577);
             txtMontoTotal.Name = "txtMontoTotal";
             txtMontoTotal.Size = new Size(191, 23);
             txtMontoTotal.TabIndex = 11;
+            txtMontoTotal.TextAlign = HorizontalAlignment.Center;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.BackColor = Color.White;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(145, 584);
+            label6.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label6.Location = new Point(50, 580);
             label6.Name = "label6";
-            label6.Size = new Size(103, 21);
+            label6.Size = new Size(87, 18);
             label6.TabIndex = 12;
             label6.Text = "Monto Total";
             // 
@@ -314,7 +321,7 @@
             button1.BackColor = Color.FromArgb(192, 255, 192);
             button1.FlatAppearance.BorderColor = Color.FromArgb(192, 255, 192);
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(1068, 585);
+            button1.Location = new Point(957, 575);
             button1.Name = "button1";
             button1.Size = new Size(122, 23);
             button1.TabIndex = 14;
@@ -327,7 +334,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1404, 675);
+            ClientSize = new Size(1101, 617);
             Controls.Add(button1);
             Controls.Add(txtMontoTotal);
             Controls.Add(label6);

@@ -8,6 +8,44 @@ namespace CapaDatos
     public class CD_Compra
     {
 
+        public List<Compra> listaCompras ()
+        {
+            List<Compra> lista = new List<Compra> ();
+
+            try
+            {
+                using (SqlConnection ObjConection = new SqlConnection(Conexion.cadena))
+                {
+                    ObjConection.Open ();
+                    string query = "SELECT CONVERT(CHAR(10), FechaRegistro, 103)[FechaRegistro], NumeroDocumento, NombreCompleto, MontoTotal FROM compra;";
+                    SqlCommand cmd = new SqlCommand (query, ObjConection);
+                    cmd.CommandType = CommandType.Text;
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+
+                        while (dr.Read ())
+                        {
+                            lista.Add(new Compra()
+                            {
+                                FechaRegistro = dr["FechaRegistro"].ToString(),
+                                NumeroDocumento = dr["NumeroDocumento"].ToString(),
+                                NombreCompleto = dr["NombreCompleto"].ToString(),
+                                MontoTotal = Convert.ToDecimal( dr["MontoTotal"].ToString() )
+                            }) ;
+                       
+                        }
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return lista = new List<Compra>();
+            }
+            return lista;
+        }
+
         public int obtenerCorrelativo()
         {
             int idCorrelativo = 0;
@@ -44,7 +82,7 @@ namespace CapaDatos
                 try
                 {
                     SqlCommand cmd = new SqlCommand("SP_RegistrarCompra", ObjConexion);
-                    cmd.Parameters.AddWithValue("IdUsuario", 1 );
+                    cmd.Parameters.AddWithValue("IdUsuario", ObjCompra.ObjUsuario.IdUsuario );
                     cmd.Parameters.AddWithValue("IdProveedor",ObjCompra.ObjProveedor.IdProveedor);
                     cmd.Parameters.AddWithValue("TipoDocumento", ObjCompra.TipoDocumento);
                     cmd.Parameters.AddWithValue("NumeroDocumento", ObjCompra.NumeroDocumento);

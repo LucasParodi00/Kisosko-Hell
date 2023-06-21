@@ -24,7 +24,7 @@ namespace CapaDatos
                     query.AppendLine("SELECT rol.IdRol, permiso.Nombre FROM permiso");
                     query.AppendLine("JOIN rol ON rol.IdRol = permiso.IdRol");
                     query.AppendLine("JOIN usuario ON usuario.IdRol = rol.IdRol");
-                    query.AppendLine("WHERE usuario.IdRol = @idUsuario");
+                    query.AppendLine("WHERE usuario.IdUsuario = @idUsuario");
 
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), ObjConexion);

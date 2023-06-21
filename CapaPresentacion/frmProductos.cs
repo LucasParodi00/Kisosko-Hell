@@ -182,7 +182,7 @@ namespace CapaPresentacion
                 if (MessageBox.Show("Seguro que va a eliminar este cliente?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     string Mensaje = string.Empty;
-                    Producto ObjProducto = new Producto ()
+                    Producto ObjProducto = new Producto()
                     {
                         IdProducto = Convert.ToInt32(txttId.Text)
                     };
@@ -200,6 +200,27 @@ namespace CapaPresentacion
                     }
                 }
             }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void s_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void a_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
         }
     }
 }
